@@ -7,7 +7,7 @@ sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci
 #sed -i 's/192.168.1.1/10.10.10.100/g' package/base-files/files/bin/config_generate
 
 # Modify system hostname（FROM OpenWrt CHANGE TO OpenWrt-N1）
-sed -i 's/immortalwrt/Phicomm-N1/g' package/base-files/files/bin/config_generate
+sed -i 's/ImmortalWrt/Phicomm-N1/g' package/base-files/files/bin/config_generate
 
 # Replace the default software source
 # sed -i 's#mirrors.vsean.net#mirrors.bfsu.edu.cn#g' package/lean/default-settings/files/zzz-default-settings
