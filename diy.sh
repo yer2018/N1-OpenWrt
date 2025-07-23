@@ -21,7 +21,7 @@ git clone https://github.com/ophub/luci-app-amlogic --depth=1 clone/amlogic
 git clone https://github.com/vernesong/OpenClash.git --depth=1 clone/openclash
 git clone https://github.com/jerrykuku/luci-app-argon-config.git --depth=1 clone/luci-app-argon-config
 git clone https://github.com/jerrykuku/luci-theme-argon.git --depth=1 clone/luci-theme-argon
-git clone https://github.com/lisaac/luci-app-diskman.git --depth=1 feeds/luci/applications/luci-app-diskman
+
 # Update packages
 rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-openclash
