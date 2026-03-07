@@ -56,7 +56,7 @@ jobs:
       run: |
         git clone $REPO_URL -b $REPO_BRANCH --single-branch --depth=1 openwrt
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-
+        echo "FILE_DATE=$(date +"%Y%m%d")" >> $GITHUB_ENV
     - name: Update & Install feeds
       run: |
         chmod +x diy.sh
@@ -107,7 +107,7 @@ jobs:
     - name: Upload firmware to release
       uses: softprops/action-gh-release@master
       with:
-        tag_name: OpenWrt_${{ env.PACKAGED_OUTPUTDATE }}
+        tag_name: OpenWrt_${{ env.FILE_DATE }}
         files: ${{ env.PACKAGED_OUTPUTPATH }}/*.img.xz
         body: |
           首次使用建议全新刷写
