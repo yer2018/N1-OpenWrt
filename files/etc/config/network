@@ -4,7 +4,6 @@ config interface 'loopback'
 	option ipaddr '127.0.0.1'
 	option netmask '255.0.0.0'
 
-
 config interface 'lan'
 	option proto 'static'
 	option netmask '255.255.255.0'
@@ -12,8 +11,9 @@ config interface 'lan'
 	option ipaddr '10.10.10.100'
 	option gateway '10.10.10.1'
 	option dns '10.10.10.1'
+	option multipath 'off'
 	option delegate '0'
 
 config globals 'globals'
-	option packet_steering '1'
+	option packet_steering '2'
 	option steering_flows '256'
