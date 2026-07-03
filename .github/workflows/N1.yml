@@ -2,7 +2,7 @@ name: Build ImmortalWrt-25.12 for N1
 
 on:
   workflow_dispatch:
-   inputs:
+    inputs:
       ssh:
         description: 'SSH connection to Actions'
         required: true
