@@ -1,5 +1,5 @@
-name: Build ImmortalWrt-24.10 for N1
-#name: Build ImmortalWrt-25.12 for N1
+#name: Build ImmortalWrt-24.10 for N1
+name: Build ImmortalWrt-25.12 for N1
 
 on:
   workflow_dispatch:
@@ -18,8 +18,8 @@ on:
 env:
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   REPO_URL: https://github.com/immortalwrt/immortalwrt
-  #REPO_BRANCH: openwrt-25.12
-  REPO_BRANCH: openwrt-24.10
+  REPO_BRANCH: openwrt-25.12
+  #REPO_BRANCH: openwrt-24.10
   TZ: Asia/Shanghai
 
 jobs:
@@ -100,7 +100,7 @@ jobs:
         openwrt_board: s905d
         kernel_repo: ophub/kernel
         kernel_usage: flippy
-        openwrt_kernel: 6.18.y
+        openwrt_kernel: 6.12.y
         builder_name: yer2018
 
     - name: Upload firmware to release
