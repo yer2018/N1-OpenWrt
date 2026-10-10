@@ -21,15 +21,15 @@ git clone https://github.com/ophub/luci-app-amlogic --depth=1 clone/amlogic
 git clone https://github.com/vernesong/OpenClash.git --depth=1 clone/openclash
 #git clone https://github.com/jerrykuku/luci-app-argon-config.git --depth=1 clone/luci-app-argon-config
 #git clone https://github.com/jerrykuku/luci-theme-argon.git --depth=1 clone/luci-theme-argon
-git clone https://github.com/eamonxg/luci-theme-aurora package/luci-theme-aurora
-git clone https://github.com/eamonxg/luci-app-aurora-config package/luci-app-aurora-config
+git clone https://github.com/eamonxg/luci-theme-aurora clone/luci-theme-aurora
+git clone https://github.com/eamonxg/luci-app-aurora-config clone/luci-app-aurora-config
 
 # Update packages
 rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-openclash
 #rm -rf feeds/luci/themes/luci-theme-argon
-#cp -rf clone/amlogic/luci-app-amlogic clone/openclash/luci-app-openclash clone/luci-app-argon-config clone/luci-theme-argon feeds/luci/applications/
-cp -rf clone/amlogic/luci-app-amlogic clone/openclash/luci-app-openclash feeds/luci/applications/
+cp -rf clone/amlogic/luci-app-amlogic clone/openclash/luci-app-openclash clone/luci-app-aurora-config clone/luci-theme-aurora feeds/luci/applications/
+
 
 # Clean packages
 rm -rf clone
