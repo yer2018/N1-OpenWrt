@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Modify default theme（FROM uci-theme-bootstrap CHANGE TO luci-theme-material）
-sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' ./feeds/luci/collections/luci/Makefile
+sed -i 's/luci-theme-bootstrap/luci-theme-aurora/g' ./feeds/luci/collections/luci/Makefile
 
 # Modify default IP（FROM 192.168.1.1 CHANGE TO 10.10.10.1）
 #sed -i 's/192.168.1.1/10.10.10.100/g' package/base-files/files/bin/config_generate
@@ -19,14 +19,17 @@ sed -i 's/\.apdisk\//\.apdisk\/\._*/g' feeds/packages/net/samba4/files/smb.conf.
 git clone https://github.com/ophub/luci-app-amlogic --depth=1 clone/amlogic
 #git clone https://github.com/xiaorouji/openwrt-passwall --depth=1 clone/passwall
 git clone https://github.com/vernesong/OpenClash.git --depth=1 clone/openclash
-git clone https://github.com/jerrykuku/luci-app-argon-config.git --depth=1 clone/luci-app-argon-config
-git clone https://github.com/jerrykuku/luci-theme-argon.git --depth=1 clone/luci-theme-argon
+#git clone https://github.com/jerrykuku/luci-app-argon-config.git --depth=1 clone/luci-app-argon-config
+#git clone https://github.com/jerrykuku/luci-theme-argon.git --depth=1 clone/luci-theme-argon
+git clone https://github.com/eamonxg/luci-theme-aurora package/luci-theme-aurora
+git clone https://github.com/eamonxg/luci-app-aurora-config package/luci-app-aurora-config
 
 # Update packages
 rm -rf feeds/luci/applications/luci-app-passwall
 rm -rf feeds/luci/applications/luci-app-openclash
-rm -rf feeds/luci/themes/luci-theme-argon
-cp -rf clone/amlogic/luci-app-amlogic clone/openclash/luci-app-openclash clone/luci-app-argon-config clone/luci-theme-argon feeds/luci/applications/
+#rm -rf feeds/luci/themes/luci-theme-argon
+#cp -rf clone/amlogic/luci-app-amlogic clone/openclash/luci-app-openclash clone/luci-app-argon-config clone/luci-theme-argon feeds/luci/applications/
+cp -rf clone/amlogic/luci-app-amlogic clone/openclash/luci-app-openclash feeds/luci/applications/
 
 # Clean packages
 rm -rf clone
