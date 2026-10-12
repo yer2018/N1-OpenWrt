@@ -23,3 +23,14 @@ git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 git clone https://github.com/eamonxg/luci-theme-aurora package/luci-theme-aurora
 git clone https://github.com/eamonxg/luci-app-aurora-config package/luci-app-aurora-config
 
+# Add hideck (HiDeck modem management, prebuilt musl-static binary from upstream release)
+HIDECK_VERSION=2.1.29
+HIDECK_SHA256=8666c6e69c9163485988b35b2f324ff3b3d35fc56d09bbc258ed5ebe586fda84
+mkdir -p package/hideck/files
+for f in Makefile files/config.yaml files/hideck.init files/modem-voice.txt; do
+  curl -fsSL -o "package/hideck/$f" "https://raw.githubusercontent.com/yibaiba/hideck/v${HIDECK_VERSION}/packaging/openwrt/hideck/$f"
+done
+# Pin version and binary hash as Makefile defaults so plain `make` works without extra vars
+sed -i "s|^HIDECK_VERSION?=.*|HIDECK_VERSION?=${HIDECK_VERSION}|" package/hideck/Makefile
+sed -i "s|^PKG_HASH:=\\\$(HIDECK_BINARY_SHA256)|HIDECK_BINARY_SHA256?=${HIDECK_SHA256}\nPKG_HASH:=\\\$(HIDECK_BINARY_SHA256)|" package/hideck/Makefile
+
