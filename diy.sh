@@ -33,4 +33,6 @@ done
 # Pin version and binary hash as Makefile defaults so plain `make` works without extra vars
 sed -i "s|^HIDECK_VERSION?=.*|HIDECK_VERSION?=${HIDECK_VERSION}|" package/hideck/Makefile
 sed -i "s|^PKG_HASH:=\\\$(HIDECK_BINARY_SHA256)|HIDECK_BINARY_SHA256?=${HIDECK_SHA256}\nPKG_HASH:=\\\$(HIDECK_BINARY_SHA256)|" package/hideck/Makefile
+# OpenWrt staging root may use a symlink for /var; hideck.init creates runtime state on start.
+sed -i 's# \\$(1)/var/lib/hideck##' package/hideck/Makefile
 
