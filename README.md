@@ -4,6 +4,10 @@
 luci-app-amlogic：系统更新、文件传输、CPU 调频等 <br>
 luci-app-openclash：科学上网 <br>
 luci-app-samba4：存储共享 <br>
+Honk、AdGuardHome、MosDNS、Vantage、Subconverter、File Browser 等插件 <br>
+
+固件使用 ImmortalWrt 25.12（Linux 6.12+）。Honk 需要内核启用 BTF 与 eBPF；
+对应选项已写入 `.config`。插件源码由 `diy.sh` 从 Honk、small 和 openwrt-packages 仓库下载。
 
 ***
 # 致谢
