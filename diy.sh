@@ -15,12 +15,13 @@ sed -i 's#mirrors.vsean.net#mirrors.tuna.tsinghua.edu.cn#g' package/lean/default
 sed -i 's/invalid users = root/#invalid users = root/g' feeds/packages/net/samba4/files/smb.conf.template
 sed -i 's/\.apdisk\//\.apdisk\/\._*/g' feeds/packages/net/samba4/files/smb.conf.template
 
-# Rust 1.96.0 CI LLVM artifact is unavailable; build LLVM from the Rust source.
-#sed -i \
-#	-e 's/^PKG_VERSION:=.*/PKG_VERSION:=1.96.0/' \
-#	-e 's/^PKG_HASH:=.*/PKG_HASH:=b99ce16cdf0ecfc761b585ac84d131b46733465a02f8ecd0ff2de9713c62ee09/' \
-#	-e 's/--set=llvm.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' \
-#	feeds/packages/lang/rust/Makefile
+# Rust 1.96.0's CI LLVM artifacts were removed (404); 1.96.1's are still available.
+if grep -q '^PKG_VERSION:=1.96.0$' feeds/packages/lang/rust/Makefile; then
+	sed -i \
+		-e 's/^PKG_VERSION:=.*/PKG_VERSION:=1.96.1/' \
+		-e 's/^PKG_HASH:=.*/PKG_HASH:=77a6ff3003a4ad0cb00697b043c879e3e1a15d945b1a1f63818903bfc3fa8b98/' \
+		feeds/packages/lang/rust/Makefile
+fi
 
 # Add packages
 git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
