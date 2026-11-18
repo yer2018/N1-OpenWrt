@@ -15,10 +15,10 @@ sed -i 's#mirrors.vsean.net#mirrors.tuna.tsinghua.edu.cn#g' package/lean/default
 sed -i 's/invalid users = root/#invalid users = root/g' feeds/packages/net/samba4/files/smb.conf.template
 sed -i 's/\.apdisk\//\.apdisk\/\._*/g' feeds/packages/net/samba4/files/smb.conf.template
 
-# Match the Rust toolchain used by the last successful 24.10 build.
+# Rust 1.96.0 CI LLVM artifact is unavailable; build LLVM from the Rust source.
 sed -i \
-	-e 's/^PKG_VERSION:=.*/PKG_VERSION:=1.94.0/' \
-	-e 's/^PKG_HASH:=.*/PKG_HASH:=0b53ae34f5c0c3612cfe1de139f9167a018cd5737bc2205664fd69ba9b25f600/' \
+	-e 's/^PKG_VERSION:=.*/PKG_VERSION:=1.96.0/' \
+	-e 's/^PKG_HASH:=.*/PKG_HASH:=b99ce16cdf0ecfc761b585ac84d131b46733465a02f8ecd0ff2de9713c62ee09/' \
 	-e 's/--set=llvm.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' \
 	feeds/packages/lang/rust/Makefile
 
