@@ -34,7 +34,7 @@ cp -a /tmp/openwrt-small/mosdns package/mosdns
 cp -a /tmp/openwrt-small/geo2txt package/geo2txt
 cp -a /tmp/openwrt-small/v2ray-geodata package/v2ray-geodata
 git clone https://github.com/kenzok8/openwrt-packages.git /tmp/openwrt-packages
-for pkg in luci-app-adguardhome adguardhome luci-app-vantage luci-theme-vantage luci-app-subconverter luci-app-filebrowser filebrowser; do
+for pkg in luci-app-adguardhome luci-app-vantage luci-theme-vantage luci-app-subconverter luci-app-filebrowser ; do
 	cp -a "/tmp/openwrt-packages/$pkg" "package/$pkg"
 done
 #git clone https://github.com/jerrykuku/luci-app-argon-config.git --depth=1 clone/luci-app-argon-config
