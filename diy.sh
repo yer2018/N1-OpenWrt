@@ -15,6 +15,9 @@ sed -i 's#mirrors.vsean.net#mirrors.tuna.tsinghua.edu.cn#g' package/lean/default
 sed -i 's/invalid users = root/#invalid users = root/g' feeds/packages/net/samba4/files/smb.conf.template
 sed -i 's/\.apdisk\//\.apdisk\/\._*/g' feeds/packages/net/samba4/files/smb.conf.template
 
+# Rust 1.96's pinned CI LLVM artifact currently returns 404; build LLVM locally.
+sed -i 's/--set=llvm.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' feeds/packages/lang/rust/Makefile
+
 # Add packages
 git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
 git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
