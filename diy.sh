@@ -16,11 +16,11 @@ sed -i 's/invalid users = root/#invalid users = root/g' feeds/packages/net/samba
 sed -i 's/\.apdisk\//\.apdisk\/\._*/g' feeds/packages/net/samba4/files/smb.conf.template
 
 # Rust 1.96.0 CI LLVM artifact is unavailable; build LLVM from the Rust source.
-sed -i \
-	-e 's/^PKG_VERSION:=.*/PKG_VERSION:=1.96.0/' \
-	-e 's/^PKG_HASH:=.*/PKG_HASH:=b99ce16cdf0ecfc761b585ac84d131b46733465a02f8ecd0ff2de9713c62ee09/' \
-	-e 's/--set=llvm.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' \
-	feeds/packages/lang/rust/Makefile
+#sed -i \
+#	-e 's/^PKG_VERSION:=.*/PKG_VERSION:=1.96.0/' \
+#	-e 's/^PKG_HASH:=.*/PKG_HASH:=b99ce16cdf0ecfc761b585ac84d131b46733465a02f8ecd0ff2de9713c62ee09/' \
+#	-e 's/--set=llvm.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' \
+#	feeds/packages/lang/rust/Makefile
 
 # Add packages
 git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
