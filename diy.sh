@@ -15,8 +15,12 @@ sed -i 's#mirrors.vsean.net#mirrors.tuna.tsinghua.edu.cn#g' package/lean/default
 sed -i 's/invalid users = root/#invalid users = root/g' feeds/packages/net/samba4/files/smb.conf.template
 sed -i 's/\.apdisk\//\.apdisk\/\._*/g' feeds/packages/net/samba4/files/smb.conf.template
 
-# Rust 1.96's pinned CI LLVM artifact currently returns 404; build LLVM locally.
-sed -i 's/--set=llvm.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' feeds/packages/lang/rust/Makefile
+# Match the Rust toolchain used by the last successful 24.10 build.
+sed -i \
+	-e 's/^PKG_VERSION:=.*/PKG_VERSION:=1.94.0/' \
+	-e 's/^PKG_HASH:=.*/PKG_HASH:=0b53ae34f5c0c3612cfe1de139f9167a018cd5737bc2205664fd69ba9b25f600/' \
+	-e 's/--set=llvm.download-ci-llvm=true/--set=llvm.download-ci-llvm=false/' \
+	feeds/packages/lang/rust/Makefile
 
 # Add packages
 git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
