@@ -25,7 +25,7 @@ fi
 
 # Add packages
 
-git clone https://github.com/ophub/luci-app-amlogi.git package/luci-app-amlogic
+git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 git clone https://github.com/kenzok8/openwrt-honk.git package/luci-app-honk
 git clone https://github.com/kenzok8/openwrt-packages/luci-app-vantage package/luci-app-vantage
