@@ -24,27 +24,12 @@ if grep -q '^PKG_VERSION:=1.96.0$' feeds/packages/lang/rust/Makefile; then
 fi
 
 # Add packages
-sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
-sed -i '2i src-git small https://github.com/kenzok8/small' feeds.conf.default
-rm -rf feeds/luci/applications/luci-app-mosdns
-rm -rf feeds/luci/applications/luci-app-adguardhome
-rm -rf feeds/luci/applications/luci-app-dockerman
-rm -rf feeds/luci/applications/luci-app-dae feeds/luci/applications/luci-app-passwall feeds/packages/net/dae
-cp -rf feeds/packages/luci-app-dae  feeds/luci/applications/
-cp -rf feeds/packages/luci-lib-daeuniverse feeds/luci/libs/
-cp -rf feeds/packages/dae feeds/packages/vmlinux-btf-builtin feeds/packages/net/
-DAE_VER=$(grep -m1 '^PKG_VERSION:=' feeds/packages/net/dae/Makefile | grep -oE '[0-9]+\.[0-9]+\.[0-9]+')
-git clone --recurse-submodules -b "v${DAE_VER}" --depth=1 https://github.com/daeuniverse/dae feeds/packages/net/dae/src
-sed -i 's|^PKG_BUILD_DIR:=|PKG_BUILD_DEPENDS:=golang1.27/host\nPKG_BUILD_DIR:=|' feeds/packages/net/dae/Makefile
-awk '{ print } index($0, "$(LN) ../v2ray/geosite.dat") { print "\t$(INSTALL_DIR) $(1)/lib/upgrade/keep.d"; print "\techo /etc/dae > $(1)/lib/upgrade/keep.d/dae" }' feeds/packages/net/dae/Makefile > feeds/packages/net/dae/Makefile.new && mv feeds/packages/net/dae/Makefile.new feeds/packages/net/dae/Makefile
-grep -q 'keep.d/dae' feeds/packages/net/dae/Makefile || { echo 'diy: failed to add keep.d install line to dae Makefile'; exit 1; }
 
-#git clone https://github.com/kenzok8/golang -b 1.26 feeds/packages/lang/golang
-
-#git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
-#git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
-
-
+git clone https://github.com/ophub/luci-app-amlogi.git package/luci-app-amlogic
+git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
+git clone https://github.com/kenzok8/openwrt-honk.git package/luci-app-honk
+git clone https://github.com/kenzok8/openwrt-packages/luci-app-vantage package/luci-app-vantage
+git clone https://github.com/kenzok8/openwrt-packages/luci-theme-vantage package/luci-theme-vantage
 #git clone https://github.com/jerrykuku/luci-app-argon-config.git --depth=1 clone/luci-app-argon-config
 #git clone https://github.com/jerrykuku/luci-theme-argon.git --depth=1 clone/luci-theme-argon
 #git clone https://github.com/eamonxg/luci-theme-aurora package/luci-theme-aurora
