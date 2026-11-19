@@ -24,20 +24,17 @@ if grep -q '^PKG_VERSION:=1.96.0$' feeds/packages/lang/rust/Makefile; then
 fi
 
 # Add packages
+sed -i '1i src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
+sed -i '2i src-git small https://github.com/kenzok8/small' feeds.conf.default
+rm -rf feeds/luci/applications/luci-app-mosdns
+rm -rf feeds/luci/applications/luci-app-adguardhome
+rm -rf feeds/packages/net/{alist,adguardhome,mosdns,xray*,v2ray*,sing*,smartdns} feeds/packages/utils/v2dat feeds/packages/lang/golang
+git clone https://github.com/kenzok8/golang -b 1.26 feeds/packages/lang/golang
+
 git clone https://github.com/ophub/luci-app-amlogic package/luci-app-amlogic
-git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
-git clone https://github.com/kenzok8/openwrt-honk.git /tmp/openwrt-honk
-cp -a /tmp/openwrt-honk/honk package/honk
-cp -a /tmp/openwrt-honk/luci-app-honk package/luci-app-honk
-git clone https://github.com/kenzok8/small.git /tmp/openwrt-small
-cp -a /tmp/openwrt-small/luci-app-mosdns package/luci-app-mosdns
-cp -a /tmp/openwrt-small/mosdns package/mosdns
-cp -a /tmp/openwrt-small/geo2txt package/geo2txt
-cp -a /tmp/openwrt-small/v2ray-geodata package/v2ray-geodata
-git clone https://github.com/kenzok8/openwrt-packages.git /tmp/openwrt-packages
-for pkg in luci-app-adguardhome luci-app-vantage luci-theme-vantage luci-app-subconverter luci-app-filebrowser ; do
-	cp -a "/tmp/openwrt-packages/$pkg" "package/$pkg"
-done
+#git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
+
+
 #git clone https://github.com/jerrykuku/luci-app-argon-config.git --depth=1 clone/luci-app-argon-config
 #git clone https://github.com/jerrykuku/luci-theme-argon.git --depth=1 clone/luci-theme-argon
 #git clone https://github.com/eamonxg/luci-theme-aurora package/luci-theme-aurora
