@@ -10,7 +10,7 @@ sed -i 's/luci-theme-bootstrap/luci-theme-vantage/g' ./feeds/luci/collections/lu
 sed -i 's/ImmortalWrt/Phicomm-N1/g' package/base-files/files/bin/config_generate
 
 # Replace the default software source
-sed -i 's#mirrors.vsean.net#mirrors.tuna.tsinghua.edu.cn#g' package/lean/default-settings/files/zzz-default-settings
+# sed -i 's#mirrors.vsean.net#mirrors.tuna.tsinghua.edu.cn#g' package/emortal/default-settings/files/99-default-settings-chinese
 
 sed -i 's/invalid users = root/#invalid users = root/g' feeds/packages/net/samba4/files/smb.conf.template
 sed -i 's/\.apdisk\//\.apdisk\/\._*/g' feeds/packages/net/samba4/files/smb.conf.template
