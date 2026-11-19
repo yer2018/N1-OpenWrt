@@ -52,7 +52,7 @@ jobs:
         chmod +x diy.sh
         cd openwrt
         ./scripts/feeds update -a
-        bash $GITHUB_WORKSPACE/diy.sh
+        $GITHUB_WORKSPACE/diy.sh
         ./scripts/feeds update -a
         ./scripts/feeds install -a
 
