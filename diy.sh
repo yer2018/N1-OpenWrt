@@ -26,6 +26,7 @@ fi
 # Add packages
 
 git clone https://github.com/ophub/luci-app-amlogic.git clone/amlogic
+git clone https://github.com/Zerogiven-OpenWRT-Packages/luci-app-podman --single-branch --depth=1 feeds/luci/applications/luci-app-podman
 git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 git clone https://github.com/kenzok8/openwrt-honk.git package/luci-app-honk
 git clone https://github.com/anothaDev/luci-theme-vantage.git clone/vantage
