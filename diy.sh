@@ -28,8 +28,8 @@ fi
 git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 git clone https://github.com/kenzok8/openwrt-honk.git package/luci-app-honk
-git clone https://github.com/kenzok8/openwrt-packages/luci-app-vantage package/luci-app-vantage
-git clone https://github.com/kenzok8/openwrt-packages/luci-theme-vantage package/luci-theme-vantage
+git clone https://github.com/anothaDev/luci-app-vantage package/luci-app-vantage
+
 #git clone https://github.com/jerrykuku/luci-app-argon-config.git --depth=1 clone/luci-app-argon-config
 #git clone https://github.com/jerrykuku/luci-theme-argon.git --depth=1 clone/luci-theme-argon
 #git clone https://github.com/eamonxg/luci-theme-aurora package/luci-theme-aurora
