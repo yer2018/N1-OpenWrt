@@ -30,7 +30,7 @@ git clone https://github.com/Zerogiven-OpenWRT-Packages/luci-app-podman --single
 git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 git clone https://github.com/kenzok8/openwrt-honk.git package/luci-app-honk
 git clone https://github.com/anothaDev/luci-theme-vantage.git clone/vantage
-cp -rf clone/amlogic/luci-app-amlogic clone/vantage/luci-app-vantage luci-theme-vantage feeds/luci/applications/
+cp -rf clone/amlogic/luci-app-amlogic clone/vantage/luci-app-vantage clone/vantage/luci-theme-vantage feeds/luci/applications/
 rm -rf clone
 
 #git clone https://github.com/jerrykuku/luci-app-argon-config.git --depth=1 clone/luci-app-argon-config
