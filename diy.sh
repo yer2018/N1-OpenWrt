@@ -25,10 +25,12 @@ fi
 
 # Add packages
 
-git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
+git clone https://github.com/ophub/luci-app-amlogic.git clone/amlogic
 git clone https://github.com/vernesong/OpenClash.git package/luci-app-openclash
 git clone https://github.com/kenzok8/openwrt-honk.git package/luci-app-honk
-git clone https://github.com/anothaDev/luci-app-vantage package/luci-app-vantage
+git clone https://github.com/anothaDev/luci-theme-vantage.git clone/vantage
+cp -rf clone/amlogic/luci-app-amlogic clone/vantage/luci-app-vantage luci-theme-vantage feeds/luci/applications/
+rm -rf clone
 
 #git clone https://github.com/jerrykuku/luci-app-argon-config.git --depth=1 clone/luci-app-argon-config
 #git clone https://github.com/jerrykuku/luci-theme-argon.git --depth=1 clone/luci-theme-argon
